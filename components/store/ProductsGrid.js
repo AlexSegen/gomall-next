@@ -3,16 +3,16 @@ import ProductItem from './ProductItem';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import styles from './ProductsGrid.module.scss';
 
-const ProductsGrid = () => {
+const ProductsGrid = ({products}) => {
 
-    const { products} = useContext(ProductsContext)
+    //const { products} = useContext(ProductsContext)
 
     return ( 
         <div className={styles.p__container}>
             <div className="row">
                 <div className="col-sm-8">
                     <div className="py-3">
-                        {products.length} Products
+                        {products && products.length ? products.length : 0 } Products
                     </div>
                 </div>
                 <div className="col-sm-4">
@@ -24,7 +24,7 @@ const ProductsGrid = () => {
             <div className={styles.p__grid}>
 
                 {
-                    products.map(product => (
+                    products && products.length && products.map(product => (
                         <ProductItem key={product.id} product={product}/>
                     ))
                 }
@@ -36,5 +36,5 @@ const ProductsGrid = () => {
         </div>
      );
 }
- 
+
 export default ProductsGrid;
