@@ -12,11 +12,11 @@ app.prepare().then(() => {
     const { pathname, query } = parsedUrl
 
     if (pathname === '/') {
-      app.render(req, res, '/Index', query)
+      app.render(req, res, '/index', query)
     } else if (pathname === '/about') {
-      app.render(req, res, '/About', query)
+      app.render(req, res, '/about', query)
     } else if (pathname === '/cart') {
-        app.render(req, res, '/Cart', query)
+        app.render(req, res, '/cart', query)
     } else {
       handle(req, res, parsedUrl)
     }
