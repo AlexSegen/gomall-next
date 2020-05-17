@@ -1,10 +1,9 @@
-
-/* const Storage = (cartItems) => {
+const Storage = (cartItems) => {
     localStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems: []));
-} */
+}
 
 export const sumItems = cartItems => {
-    // Storage(cartItems);
+    Storage(cartItems);
     let itemCount = cartItems.reduce((total, product) => total + product.quantity, 0);
     let total = cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
     return { itemCount, total }
@@ -12,12 +11,21 @@ export const sumItems = cartItems => {
 
 export const CartReducer = (state, action) => {
     switch (action.type) {
+        case "SET_INITIAL_STATE":
+            
+            const storage = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+            
+            return  { cartItems: storage,
+                ...sumItems(storage),
+                checkout: false 
+            }
+
         case "ADD_ITEM":
             if (!state.cartItems.find(item => item.id === action.payload.id)) {
                 state.cartItems.push({
                     ...action.payload,
                     quantity: 1
-                })
+                });
             } 
 
             return {
