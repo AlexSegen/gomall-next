@@ -8,7 +8,7 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   createServer((req, res) => {
-    const parsedUrl = new URL(req.url, 'http://pxservices.live')
+    const parsedUrl = new URL(req.url, 'http://store.pxservices.live')
     const { pathname, query } = parsedUrl
 
     if (pathname === '/') {
