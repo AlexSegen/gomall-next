@@ -25,10 +25,21 @@ const Index = ({products}) => {
 }
  */
 
-Index.getInitialProps = async () => {
+/* Index.getInitialProps = async () => {
     const res = await fetch(`http://strapi.pxservices.live/products`)
     const products = await res.json()
     return { products  }
 }
+ */
+export async function getStaticProps() {
+    const res = await fetch(`http://strapi.pxservices.live/products`)
+    const products = await res.json()
+  
+    return {
+      props: {
+        products,
+      },
+    }
+  }
 
 export default Index;
