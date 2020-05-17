@@ -9,7 +9,7 @@
     "start": "next start",
     "server": "node server.js",
     "server:prod": "cross-env NODE_ENV=production node server.js",
-    "export": "next build && next export -o .next"
+    "export": "next build && next export"
   },
   "keywords": [],
   "author": "",

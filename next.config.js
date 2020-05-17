@@ -1,4 +1,4 @@
-module.exports = {
+/* module.exports = {
   exportTrailinglash: true,
   exportPathMap: function () {
     const paths = {
@@ -9,4 +9,4 @@ module.exports = {
 
     return paths;
   },
-};
+}; */
