@@ -2,7 +2,7 @@ module.exports = {
   exportTrailinglash: true,
   exportPathMap: function () {
     const paths = {
-      "/": { page: "/index" },
+      "/": { page: "/" },
       "/cart": { page: "/cart" },
       "/about": { page: "/about" }
     };
